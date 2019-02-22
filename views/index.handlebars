@@ -1,0 +1,85 @@
+<div class="jumbotron bg-primary">
+    <h1 class="text-center">BURGER CRUSH!</h1>
+
+
+    <h2>Add A Burger to the list!</h2>
+
+
+
+    <form action="/burgers" method="POST">
+        <input type="text" id="name" name="burger_name" placeholder="Burger Name">
+        <button type="submit" class="addBurgerButton">Add The Burger</button>
+    </form>
+
+</div>
+<main>
+
+
+    <div class=" card text-center center-block float-right">
+        <h3>
+            <p class="txt-railway">- Follow Me -</p>
+        </h3>
+        <br />
+        <a href="http://github.com/mikefox17" target="_blank" class="btn-social btn-github"><i class="fa fa-github fa-3x"></i></a>
+        <a href="https://www.linkedin.com/in/michaelfoxdownstairs/" target="_blank" class="btn-social btn-linkedin"><i
+                class="fa fa-linkedin fa-3x"></i></a>
+
+        <a href="http://twitter.com/foxdownstairs" target="_blank" class="btn-social btn-twitter"><i class="fa fa-twitter fa-3x"></i></a>
+        <a href="http://instagram.com/thefoxdownstairs" target="_blank" class="btn-social btn-instagram fa-3x"><i class="fa fa-instagram"></i></a>
+
+    </div>
+
+    <br>
+    <hr>
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="card">
+                <div class="card-body bg-light">
+                    <div class="card-title">
+                        <h3 class="text-center">
+                            Burgers Ate
+                    </div>
+                    </h3>
+
+                    <ul>
+                        <ul>
+                            <P class="text-center">{{#each burgers}}</p>
+                        </ul>
+                        <p class="text-center">{{#unless this.devoured}}</p>
+                    </ul>
+                    <div>
+                        <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                            <button type="submit" class='burgerAvailable'>
+                                <p class="text-danger">EAT THIS BURG NOW:</p> {{this.burger_name}}
+                            </button>
+                        </form>
+                    </div>
+
+                    {{/unless}}
+                    {{/each}}
+
+
+
+                    {{#each burgers}}
+                    <ul>{{#if this.devoured}}</ul>
+
+                    <li>{{this.burger_name}}</li>
+
+
+                    {{/if}}
+                    {{/each}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <br>
+
+</main>
+</div>
